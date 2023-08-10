@@ -61,8 +61,7 @@ img {
 /* Header */
 .header {
     height: 65rem;
-    background: url("../img/banner.jpg") no-repeat center;
-    background-position: center center;
+    background: url("../img/banner.jpg") no-repeat center center;
 }
 .header-texto {
     color: var(--blanco);
@@ -116,12 +115,13 @@ img {
         column-gap: 4rem;
     }
 }
-.entrada, .widget-curso {
+.entrada, .widget-curso, .curso {
     border-bottom: 1px solid var(--primario);
     margin-bottom: 2rem;
 }
 .entrada:last-of-type,
-.widget-curso:last-of-type {
+.widget-curso:last-of-type,
+.curso:last-of-type{
     border-bottom: none;
     margin-bottom: 0;
 }
@@ -140,11 +140,17 @@ img {
     text-align: center;
     border-radius: 2.5rem;
     margin-bottom: 3rem;
+    border: none;
 }
-
-@media only screen and (min-width: 769px) {
+.boton:hover {
+    cursor: pointer;
+}
+@media only screen and (min-width: 768px) {
     .boton {
         display: inline-block;
+    }
+    .boton--derecha {
+        float: right;
     }
 }
 
@@ -154,21 +160,24 @@ img {
 .boton--segundario {
     background-color: var(--primario);
 }
-
 /*Cursos sidebar*/
 .cursos {
     list-style: none;
 }
 .widget-curso__label,
-.widget-curso__info {
-    font-size: 2rem;
-}
-.widget-curso__label {
+.curso__label {
     font-family: var(--fuenteHeading);
     font-weight: bold;
 }
-.widget-curso__info {
+.widget-curso__info,
+.curso__info {
     font-weight: normal;
+}
+.widget-curso__label,
+.widget-curso__info,
+.curso__label,
+.curso__info {
+    font-size: 1.5rem;
 }
 /* Footer */
 .footer {
@@ -188,4 +197,88 @@ img {
     .sobre-nosotros__texto {
         text-align: justify;
     }
+}
+
+/* pagina cursos*/
+@media only screen and (min-width: 768px) {
+    .curso {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+    }
+}
+
+/* Contacto */
+.contacto-bg {
+    background-image: url("../img/contacto.jpg");
+    background-repeat: no-repeat;
+    height: 40rem;
+}
+.formulario{
+    background-color: var(--gris);
+    margin: -5rem auto 0 auto;
+    width: 90%;
+    padding: 5rem;
+}
+.campo{
+    display: flex;
+    margin-bottom: 2.5rem;
+}
+.campo__boton--form{
+    margin: 0;
+    display: block;
+}
+@media only screen and (max-width: 500px) {
+    .formulario {
+        padding: 5rem 2rem;
+    }
+    .campo {
+        display: block;
+        text-align: left;
+        padding-right: 0;
+    }
+    .campo__field, .campo__boton--form .boton {
+        width: 100%;
+    }
+}
+.campo__label {
+    flex: 0 0 9rem;
+    text-align: right;
+    padding-right: 2rem;
+}
+.campo__field{
+    flex: 1;
+    border: 1px solid var(--negro);
+}
+
+/* Modal ventana emergente para registro*/
+.modal{
+    background-color: rgba(58, 53, 53, 0.76);
+    position:fixed;
+    top: 0;
+    right:0;
+    bottom:0;
+    left:0;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+}
+.modal--container {
+    margin: auto;
+    width: 90%;
+    max-width: 60rem;
+    max-height: 90%;
+    border-radius: 4rem;
+}
+.verModal {
+    opacity: 1;
+    pointer-events: auto;
+}
+.final__inscripcion {
+    display: none;
+}
+.mostrar-final {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
