@@ -6,14 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- preload -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+          crossorigin="crossorigin" as="font">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
           rel="stylesheet">
 
     <link rel="preload" href="css/normalize.css" as="style">
-    <link rel="preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/normalize.css">
+
+    <link rel="preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/style.css">
 
     <title>Blog de cafe</title>
@@ -43,7 +45,7 @@
 
         <div class="curso">
             <div class="curso__img">
-                <img src="img/curso1.jpg" alt="imagen primer curso">
+                <img loading="lazy" src="img/curso1.jpg" alt="imagen primer curso">
             </div>
             <div class="curso__info">
                 <h4 class="no-margin">Tecnicas de extraccion de cafe</h4>
@@ -67,7 +69,7 @@
 
         <div class="curso">
             <div class="curso__img">
-                <img src="img/curso2.jpg" alt="imagen primer curso">
+                <img loading="lazy" src="img/curso2.jpg" alt="imagen primer curso">
             </div>
             <div class="curso__info">
                 <h4 class="no-margin">Taller para Tostar y moler granos</h4>
@@ -91,7 +93,7 @@
 
         <div class="curso">
             <div class="curso__img">
-                <img src="img/curso3.jpg" alt="imagen primer curso">
+                <img loading="lazy" src="img/curso3.jpg" alt="imagen primer curso">
             </div>
             <div class="curso__info">
                 <h4 class="no-margin">Cuatro recetas de cafe</h4>
@@ -139,13 +141,13 @@
                     <input class="campo__field" type="text" id="genero" placeholder="Femenino, Masculino, Otro">
                 </div>
                 <div class="campo campo__boton--form">
-                    <input type="submit" value="Enviar" class="boton boton--primario boton--inscripcion">
+                    <input type="submit" value="Enviar" class="boton--enviar boton boton--primario">
                     <input type="submit" value="X" class="cerrar-modal boton boton--segundario boton--derecha">
                 </div>
             </form>
-            <div class="final__inscripcion">
+            <div class="final__inscripcion ocultar">
                 <h3>Inscrito</h3>
-                <svg></svg>
+                <img loading="lazy" src="img/icons8-check.svg" alt="svg de check">
                 <p>Gracias por inscrivirte</p>
             </div>
         </div>
@@ -167,5 +169,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/modernizr.js"></script>
 </body>
 </html>
