@@ -1,63 +1,43 @@
-/*selecciona todoos los btn de inscribirse
+//selecciona todoos los btn de inscribirse
 const btnInscribirse = document.querySelectorAll('.abrir_modal');
-
 //obtencion de la referencia al modal
 const modal = document.querySelector('.modal');
+//obtencion de la referencia al boton enviar de la ventana modal
+const btnEnviar = document.querySelector('.boton--enviar');
+//seleccion referencia al formulario
+const formulario = document.querySelector('.formulario');
+//seleccion referencia al mensaje final
+const inscripcionCompleta = document.querySelector('.final__inscripcion');
 
-//funcion para adicionar la clase al modal
-const abrirModal = () => modal.classList.add('verModal');
+//funcion mostrar el modal
+const mostrarModal = () => modal.classList.add('verModal');
+//obtencion para cerrar de la ventana modal
+const cerrarModal = () => modal.classList.remove('verModal');
+
+//for para agregar opcion al boton de la vista principal
 btnInscribirse.forEach(boton => {
     boton.addEventListener('click', (evt) => {
         evt.preventDefault();
-        abrirModal();
+        inscripcionCompleta.classList.remove('mostrar-final');
+        inscripcionCompleta.classList.add('ocultar');
+        formulario.classList.remove('ocultar');
+        mostrarModal();
     });
 });
 
-//boton cerrar de la ventana modal
-const cerrarModal = document.querySelector('.cerrar-modal');
-cerrarModal.addEventListener('click', (evt) => {
+//evento click para cerrar modal
+document.querySelector('.cerrar-modal').addEventListener('click', (evt) => {
     evt.preventDefault();
-    modal.classList.remove('verModal')
-});*/
+    cerrarModal();
+});
 
-// Selecciona todos los botones de inscribirse
-const btnInscribirse = document.querySelectorAll('.abrir_modal');
-
-// Obtención de la referencia al modal
-const modal = document.querySelector('.modal');
-
-// Obtención de la referencia al contenido de inscripción final
-const finalInscripcion = document.querySelector('.final__inscripcion');
-
-// Función para abrir el modal y mostrar el contenido de inscripción final
-const abrirModal = () => {
-    modal.classList.add('verModal');
+btnEnviar.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    formulario.classList.add('ocultar');
+    inscripcionCompleta.classList.remove('ocultar');
+    inscripcionCompleta.classList.add('mostrar-final');
+    //llamando a ocultarModal
     setTimeout(() => {
-        finalInscripcion.classList.add('mostrar-final');
-    }, 500); // Cambiar el valor de 500 según la duración de tu transición CSS
-};
-
-// Agregar Event Listeners a los botones de inscribirse
-btnInscribirse.forEach(boton => {
-    boton.addEventListener('click', (evt) => {
-        evt.preventDefault();
-        abrirModal();
-    });
+        cerrarModal();  // Cierra el modal después de 2 segundos
+    }, 1500);
 });
-
-// Obtención de la referencia al botón de cerrar el modal
-const cerrarModal = document.querySelector('.cerrar-modal');
-
-// Función para cerrar el modal y ocultar el contenido de inscripción final
-const cerrarYocultar = () => {
-    modal.classList.remove('verModal');
-    finalInscripcion.classList.remove('mostrar-final');
-};
-
-// Agregar Event Listener al botón de cerrar el modal
-cerrarModal.addEventListener('click', (evt) => {
-    evt.preventDefault();
-    cerrarYocultar();
-});
-
-
