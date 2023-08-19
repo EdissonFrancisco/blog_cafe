@@ -18,7 +18,6 @@ mensaje.addEventListener('input', leertexto);
 // Función para actualizar los datos en el objeto al escribir en los campos
 function leertexto(e) {
     datos[e.target.id] = e.target.value;
-    console.log(datos);
 }
 
 // Obtener referencia al formulario
