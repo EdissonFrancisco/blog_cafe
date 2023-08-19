@@ -52,7 +52,6 @@ genero.addEventListener('input', leertexto);
 
 function leertexto(e) {
     datos[e.target.id] = e.target.value;
-    //console.log(datos);
 }
 
 // Evento para enviar el formulario
